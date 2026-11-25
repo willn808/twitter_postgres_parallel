@@ -11,31 +11,31 @@ services:
       - POSTGRES_PASSWORD=pass
       - PGUSER=postgres
     ports:
-      - 1:5432
+      - 9471:5432
 
   pg_normalized:
     build: services/pg_normalized
     volumes:
       - ./:/tmp/db
-      - pg_normalized:/var/lib/postgresql/data
+      - pg_normalized:/var/lib/postgresql
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=pass
       - PGUSER=postgres
     ports:
-      - 2:5432
+      - 9472:5432
 
   pg_normalized_batch:
     build: services/pg_normalized_batch
     volumes:
       - ./:/tmp/db
-      - pg_normalized_batch:/var/lib/postgresql/data
+      - pg_normalized_batch:/var/lib/postgresql
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=pass
       - PGUSER=postgres
     ports:
-      - 3:5432
+      - 9473:5432
 
 volumes:
     pg_normalized:
